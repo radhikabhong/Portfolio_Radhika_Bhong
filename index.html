@@ -64,7 +64,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 1.2rem 4rem;
-    background: rgba(10,10,15,0.75);
+    background: rgba(10,10,15,0.85);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
   }
@@ -76,7 +76,7 @@
     letter-spacing: 0.1em;
   }
 
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
   .nav-links a {
     font-family: 'DM Mono', monospace;
     font-size: 0.78rem;
@@ -94,6 +94,7 @@
   }
   .nav-resume:hover { background: var(--accent) !important; color: white !important; }
 
+  /* HERO */
   .hero {
     position: relative;
     z-index: 1;
@@ -133,7 +134,7 @@
 
   .hero-title {
     font-family: 'DM Serif Display', serif;
-    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    font-size: clamp(1.1rem, 2vw, 1.6rem);
     color: var(--text-muted);
     margin-bottom: 2rem;
     font-style: italic;
@@ -141,7 +142,7 @@
   }
 
   .hero-summary {
-    max-width: 620px;
+    max-width: 640px;
     font-size: 1.05rem;
     color: var(--text-muted);
     line-height: 1.8;
@@ -208,6 +209,7 @@
     margin-top: 0.25rem;
   }
 
+  /* SECTIONS */
   section {
     position: relative;
     z-index: 1;
@@ -233,6 +235,7 @@
   .section-title { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: var(--text); }
   .section-line { flex: 1; height: 1px; background: var(--border); }
 
+  /* EXPERIENCE */
   .experience-grid { display: flex; flex-direction: column; gap: 1.5rem; }
 
   .job {
@@ -257,9 +260,6 @@
   }
   .job:hover { border-color: var(--accent); }
   .job:hover::after { opacity: 1; }
-
-  .job-left {}
-  .job-right {}
 
   .job-meta {
     display: flex;
@@ -303,12 +303,10 @@
     padding: 0.9rem 1.1rem;
     font-size: 0.85rem;
     color: var(--text-muted);
-    line-height: 1.55;
-    transition: border-color 0.2s;
+    line-height: 1.6;
   }
   .job-highlight:nth-child(2) { border-left-color: var(--accent3); }
   .job-highlight:nth-child(3) { border-left-color: var(--accent2); }
-  .job:hover .job-highlight { border-color: var(--border); }
 
   .job-tags {
     display: flex;
@@ -326,12 +324,63 @@
     letter-spacing: 0.04em;
   }
 
-  @media (max-width: 900px) {
-    .job { grid-template-columns: 1fr; }
-  }
-
   .highlight { color: var(--green); font-weight: 500; }
 
+  /* PUBLICATION BANNER */
+  .publication-banner {
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(135deg, rgba(124,106,247,0.08), rgba(56,189,248,0.05));
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .publication-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 4rem;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+  .pub-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 0.3rem 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .pub-content { flex: 1; min-width: 280px; }
+  .pub-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    color: var(--text);
+    font-style: italic;
+    margin-bottom: 0.4rem;
+    line-height: 1.4;
+  }
+  .pub-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    letter-spacing: 0.06em;
+  }
+  .pub-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent3);
+    text-decoration: none;
+    border: 1px solid var(--accent3);
+    padding: 0.5rem 1.2rem;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .pub-link:hover { background: var(--accent3); color: var(--bg); }
+
+  /* SKILLS */
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -372,6 +421,7 @@
   }
   .tag:hover { border-color: var(--accent); color: var(--accent); }
 
+  /* EDUCATION */
   .edu-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -390,6 +440,7 @@
   .edu-school { font-family: 'DM Mono', monospace; font-size: 0.78rem; color: var(--accent3); letter-spacing: 0.08em; margin-bottom: 0.5rem; }
   .edu-period { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--text-dim); }
 
+  /* CONTACT */
   .contact-section {
     position: relative;
     z-index: 1;
@@ -484,11 +535,16 @@
     animation: blink 1s step-end infinite;
   }
 
+  @media (max-width: 900px) {
+    .job { grid-template-columns: 1fr; }
+    .contact-inner { grid-template-columns: 1fr; }
+  }
+
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     .hero, section { padding: 6rem 1.5rem 3rem; }
-    .contact-inner { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
+    .publication-inner { padding: 2rem 1.5rem; flex-direction: column; }
     footer { padding: 2rem 1.5rem; }
   }
 </style>
@@ -509,26 +565,40 @@
   </ul>
 </nav>
 
+<!-- HERO -->
 <div class="hero">
   <div class="hero-eyebrow">Senior Software Engineer</div>
   <h1 class="hero-name"><em>Radhika</em><br>Bhong<span class="cursor"></span></h1>
-  <p class="hero-title">Full-Stack · Strongest in Backend &amp; Cloud · Excited by Gen AI &amp; Agents</p>
+  <p class="hero-title">.NET · React · AI Integration · Azure · AWS</p>
   <p class="hero-summary">
-    I have 7+ years of experience building full-stack systems — but where I really thrive is in the <strong>backend and cloud</strong>: distributed architecture, microservices, APIs, and the infrastructure that holds everything together. Lately I've been leaning deeper into <strong>generative AI and agentic systems</strong>, exploring how LLMs and AI agents can fundamentally change the way software is built. Open to backend-heavy, cloud-native, and AI-focused roles across healthcare, fintech, or high-scale SaaS.
+    I build the kind of software that quietly powers things at scale — <strong>distributed systems</strong> handling thousands of transactions, <strong>AI pipelines</strong> that turn hours of manual work into minutes, and <strong>cloud infrastructure</strong> that just works. 7+ years delivering production-grade systems across enterprise platforms, with a growing focus on <strong>LLM integration and AI-powered automation</strong>.
   </p>
   <div class="hero-actions">
     <a href="https://github.com/radhikabhong" target="_blank" class="btn-primary">↗ GitHub</a>
-    <a href="https://linkedin.com/in/radhikabhong" target="_blank" class="btn-secondary">LinkedIn</a>
-    <a href="mailto:radhikabhong@gmail.com" class="contact-link">
-        <div class="contact-link-info">
-          <div class="contact-link-label">Email</div>
-          <div class="contact-link-value">radhikabhong@gmail.com</div>
-        </div>
-        <span class="contact-link-arrow">→</span>
-      </a>
+    <a href="https://linkedin.com/in/radhikabhong" target="_blank" class="btn-secondary">↗ LinkedIn</a>
+    <a href="mailto:radhikabhong@gmail.com" class="btn-secondary">✉ Email</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">7</span>
+      <span class="stat-label">Years Experience</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">400K+</span>
+      <span class="stat-label">Users Served</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">4</span>
+      <span class="stat-label">Companies</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">1</span>
+      <span class="stat-label">DOE Publication</span>
+    </div>
   </div>
 </div>
 
+<!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-header">
     <span class="section-num">01</span>
@@ -545,16 +615,16 @@
           <span class="job-period">May 2024 — Present</span>
         </div>
         <div class="job-title">Senior Software Engineer</div>
-        <p class="job-narrative">Healthcare software that touches real patient data and insurance claims has zero room for error. I own the backend architecture for two core platforms — an EMR system and AccuEstimator — where reliability isn't a nice-to-have, it's the product. This is also where I've been deepest in agentic AI tooling, weaving it into everyday engineering rather than treating it as a side experiment.</p>
+        <p class="job-narrative">I architected the entire backend from scratch — distributed .NET Core microservices, RESTful C# APIs, third-party integrations, React frontend, and secure dual-cloud infrastructure. This is also where I've gone deepest on AI integration, building a voice-to-document pipeline using AWS Transcribe and Azure OpenAI that cut documentation time by two-thirds.</p>
         <div class="job-tags">
-          <span class="job-tag">.NET / C#</span><span class="job-tag">Azure</span><span class="job-tag">AWS</span><span class="job-tag">Terraform</span><span class="job-tag">Microservices</span><span class="job-tag">SQL Server</span><span class="job-tag">React</span><span class="job-tag">GitHub Actions</span><span class="job-tag">HIPAA</span><span class="job-tag">Cursor AI</span><span class="job-tag">Copilot</span>
+          <span class="job-tag">.NET Core</span><span class="job-tag">C#</span><span class="job-tag">React</span><span class="job-tag">Azure</span><span class="job-tag">AWS</span><span class="job-tag">Terraform</span><span class="job-tag">Azure OpenAI</span><span class="job-tag">LangChain</span><span class="job-tag">GitHub Actions</span><span class="job-tag">SQL Server</span>
         </div>
       </div>
       <div class="job-right">
         <div class="job-highlights">
-          <div class="job-highlight">Designed and scaled a microservices backend powering insurance claims, prescription workflows, and patient data — real-time validation, third-party integrations, Swagger/OpenAPI throughout.</div>
-          <div class="job-highlight">Rebuilt CI/CD from the ground up with GitHub Actions and Azure DevOps — turning deployments from a source of anxiety into a non-event.</div>
-          <div class="job-highlight">Architecting HIPAA-compliant infrastructure across Azure and AWS via Terraform, while actively embedding agentic AI tools into the team's daily engineering workflow.</div>
+          <div class="job-highlight">Architected a distributed .NET Core microservices backend from scratch with 15+ RESTful C# APIs, Swagger/OpenAPI, and 3 third-party integrations — handling <span class="highlight">1,500+ daily transactions</span> with response times under 2 seconds.</div>
+          <div class="job-highlight">Built a voice-to-document AI pipeline using AWS Transcribe, Azure OpenAI, and prompt engineering via .NET Core APIs — cutting documentation time from <span class="highlight">15 minutes to under 5 minutes</span> across 100+ daily sessions.</div>
+          <div class="job-highlight">Configured secure Azure + AWS infrastructure with GitHub Actions and Azure DevOps CI/CD — cut release cycle from <span class="highlight">6 hours to 45 minutes</span> and passed security audit with zero findings.</div>
         </div>
       </div>
     </div>
@@ -567,16 +637,16 @@
           <span class="job-period">Jul 2023 — Apr 2024</span>
         </div>
         <div class="job-title">Lead Software Engineer</div>
-        <p class="job-narrative">Took ownership of a legacy codebase that needed more than maintenance — it needed a new foundation. Led the backend and full-stack modernisation while keeping enterprise workflows running uninterrupted. The challenge wasn't just writing better code, it was doing it without breaking what already existed.</p>
+        <p class="job-narrative">Took a client running 5+ disconnected tools and built them one unified platform on AWS from scratch. Designed the database architecture, built the real-time data pipeline, and delivered a system that 100+ researchers and enterprise clients now depend on daily.</p>
         <div class="job-tags">
-          <span class="job-tag">C# / .NET</span><span class="job-tag">SQL Server</span><span class="job-tag">AWS</span><span class="job-tag">REST APIs</span><span class="job-tag">Microservices</span><span class="job-tag">Entity Framework</span><span class="job-tag">CI/CD</span>
+          <span class="job-tag">.NET Core MVC</span><span class="job-tag">C#</span><span class="job-tag">AWS</span><span class="job-tag">SQL Server</span><span class="job-tag">Python</span><span class="job-tag">Entity Framework</span><span class="job-tag">GitHub Actions</span>
         </div>
       </div>
       <div class="job-right">
         <div class="job-highlights">
-          <div class="job-highlight">Refactored and modernised legacy applications in C#/.NET — not just cleaned up the code, but rethought the architecture for long-term scalability.</div>
-          <div class="job-highlight">Designed and shipped cloud-native applications on AWS with CI/CD pipelines that made deployments genuinely faster and predictable.</div>
-          <div class="job-highlight">Deep SQL Server performance work — indexing, stored procedures, Entity Framework tuning — turning bottlenecks into non-issues.</div>
+          <div class="job-highlight">Designed and delivered a unified .NET Core MVC platform on AWS, consolidating 5+ fragmented tools for <span class="highlight">100+ users</span> handling 5,000+ daily transactions.</div>
+          <div class="job-highlight">Engineered the platform's first centralized SQL Server database — designing schemas, tables, and stored procedures — cutting report load times from <span class="highlight">10 minutes to under 4 minutes</span>.</div>
+          <div class="job-highlight">Built an automated Python and AWS processing pipeline for wearable device data, replacing manual analysis and delivering <span class="highlight">real-time reporting</span> across multiple quality metrics.</div>
         </div>
       </div>
     </div>
@@ -588,17 +658,17 @@
           <span class="job-dot">·</span>
           <span class="job-period">Jun 2022 — Dec 2022</span>
         </div>
-        <div class="job-title">Software Developer</div>
-        <p class="job-narrative">An early bet on AI in production — before it became the default expectation. Embedded ML models into live applications in an R&D environment where things break fast and iteration speed matters. The experience of making AI actually useful in a production system, not just a demo, stuck with me.</p>
+        <div class="job-title">Software Developer (Co-op)</div>
+        <p class="job-narrative">R&D environment, real production AI. Built an unsupervised anomaly detection model from scratch and wired it into a .NET Core application with live dashboards. The research was later published in a U.S. Department of Energy funded paper on arXiv.</p>
         <div class="job-tags">
-          <span class="job-tag">C# / .NET</span><span class="job-tag">Python</span><span class="job-tag">Azure</span><span class="job-tag">ML Integration</span><span class="job-tag">REST APIs</span>
+          <span class="job-tag">Python</span><span class="job-tag">Keras</span><span class="job-tag">TensorFlow</span><span class="job-tag">.NET Core</span><span class="job-tag">Azure</span><span class="job-tag">ML Integration</span>
         </div>
       </div>
       <div class="job-right">
         <div class="job-highlights">
-          <div class="job-highlight">Integrated ML models into production applications — cutting the gap between something going wrong and the team knowing about it.</div>
-          <div class="job-highlight">Built backend services and REST APIs that connected systems which previously couldn't talk to each other.</div>
-          <div class="job-highlight">Leveraged Azure for scalable data storage and processing pipelines built for the unpredictable rhythms of an R&D environment.</div>
+          <div class="job-highlight">Developed an unsupervised Python anomaly detection model using Keras and TensorFlow, processing <span class="highlight">100,000+ daily data points</span> and achieving 82% detection accuracy.</div>
+          <div class="job-highlight">Delivered a production .NET Core application with end-to-end ML integration, real-time anomaly alerting, and time-series data visualization dashboards.</div>
+          <div class="job-highlight">Work published in <span class="highlight">DOE-funded peer-reviewed research</span> (arXiv:2401.15543) — validated across 3 independent real-world datasets.</div>
         </div>
       </div>
     </div>
@@ -606,42 +676,20 @@
     <div class="job">
       <div class="job-left">
         <div class="job-meta">
-          <span class="job-company">Atos Private Limited</span>
+          <span class="job-company">Atos-Syntel</span>
           <span class="job-dot">·</span>
           <span class="job-period">Jun 2018 — Aug 2021</span>
         </div>
         <div class="job-title">Software Engineer</div>
-        <p class="job-narrative">Three years building insurance software at scale — the kind that handles real claims, real money, real consequences. This is where I developed a deep respect for production discipline: what it means to ship carefully, migrate safely, and build systems that other people's livelihoods depend on.</p>
+        <p class="job-narrative">Three years building enterprise software at scale — the kind that handles real transactions, real users, real consequences. Grew from fresher to independently owning features end-to-end. This is where I built the production discipline that still shapes how I work today.</p>
         <div class="job-tags">
-          <span class="job-tag">ASP.NET Core</span><span class="job-tag">Azure</span><span class="job-tag">Oracle / PL-SQL</span><span class="job-tag">REST APIs</span><span class="job-tag">CI/CD</span>
+          <span class="job-tag">ASP.NET Core</span><span class="job-tag">C#</span><span class="job-tag">Oracle SQL</span><span class="job-tag">REST APIs</span><span class="job-tag">OAuth2</span><span class="job-tag">JWT</span><span class="job-tag">Jenkins</span><span class="job-tag">Jira</span>
         </div>
       </div>
       <div class="job-right">
         <div class="job-highlights">
-          <div class="job-highlight">Built ASP.NET Core MVC applications covering the full insurance lifecycle — claims, policy management, and secure authentication.</div>
-          <div class="job-highlight">Led a legacy-to-Azure migration with Oracle integrations and CI/CD automation — modernising without disrupting live operations.</div>
-          <div class="job-highlight">Implemented async REST APIs that gave the backend the responsiveness the business needed to operate at scale.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="job">
-      <div class="job-left">
-        <div class="job-meta">
-          <span class="job-company">Zensar Technologies</span>
-          <span class="job-dot">·</span>
-          <span class="job-period">Jun 2017 — May 2018</span>
-        </div>
-        <div class="job-title">Software Developer Intern</div>
-        <p class="job-narrative">Where it started — shipping real software in a real team. Learned Git discipline, understood the full request lifecycle from browser to database, and built the full-stack instincts that still shape how I think about systems today.</p>
-        <div class="job-tags">
-          <span class="job-tag">C# / ASP.NET</span><span class="job-tag">Entity Framework</span><span class="job-tag">JavaScript</span><span class="job-tag">SQL</span><span class="job-tag">Git</span>
-        </div>
-      </div>
-      <div class="job-right">
-        <div class="job-highlights">
-          <div class="job-highlight">Built and deployed web applications in C# and ASP.NET with Entity Framework — proper version control and team workflows from day one.</div>
-          <div class="job-highlight">Developed frontend components wired up to REST APIs and SQL backends, learning to think across the full stack from the start.</div>
+          <div class="job-highlight">Independently delivered ASP.NET Core MVC enterprise portal features end-to-end — serving <span class="highlight">400,000+ end users</span> with OAuth2/JWT authentication across account management workflows.</div>
+          <div class="job-highlight">Refactored synchronous REST API endpoints to async/await patterns on Oracle SQL backend handling 50,000+ daily requests — reducing response times from <span class="highlight">800ms to under 500ms</span>.</div>
         </div>
       </div>
     </div>
@@ -649,6 +697,18 @@
   </div>
 </section>
 
+<!-- PUBLICATION BANNER -->
+<div class="publication-banner">
+  <div class="publication-inner">
+    <div class="pub-badge">Published Research</div>
+    <div class="pub-content">
+      <div class="pub-title">"Anomaly Detection of Particle Orbit in Accelerator using LSTM Deep Learning Technology"</div>
+      <div class="pub-meta">U.S. Department of Energy funded · Grant DE-SC0022438 · arXiv:2401.15543 · 2024</div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
 <section id="skills">
   <div class="section-header">
     <span class="section-num">02</span>
@@ -658,49 +718,61 @@
   <div class="skills-grid">
     <div class="skill-card">
       <div class="skill-icon">⚙️</div>
-      <div class="skill-category">Full Stack Programming</div>
+      <div class="skill-category">Languages & Frameworks</div>
       <div class="skill-tags">
-        <span class="tag">C#</span><span class="tag">.NET Core</span><span class="tag">ASP.NET</span>
-        <span class="tag">Web API</span><span class="tag">REST APIs</span><span class="tag">Microservices</span>
-        <span class="tag">Entity Framework</span><span class="tag">Python</span><span class="tag">React</span>
-        <span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">☁️</div>
-      <div class="skill-category">Cloud &amp; DevOps</div>
-      <div class="skill-tags">
-        <span class="tag">Azure</span><span class="tag">AWS</span><span class="tag">Docker</span>
-        <span class="tag">Kubernetes</span><span class="tag">GitHub Actions</span><span class="tag">Jenkins</span><span class="tag">CI/CD</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">🗄️</div>
-      <div class="skill-category">Databases</div>
-      <div class="skill-tags">
-        <span class="tag">SQL Server</span><span class="tag">Oracle</span><span class="tag">PL/SQL</span>
-        <span class="tag">Stored Procedures</span><span class="tag">Performance Tuning</span><span class="tag">Query Optimization</span>
+        <span class="tag">.NET Core 6/7/8</span><span class="tag">C#</span><span class="tag">ASP.NET Core MVC</span>
+        <span class="tag">Web API</span><span class="tag">Entity Framework Core</span><span class="tag">LINQ</span>
+        <span class="tag">Python</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">JavaScript</span>
       </div>
     </div>
     <div class="skill-card">
       <div class="skill-icon">🤖</div>
-      <div class="skill-category">AI &amp; Agentic</div>
+      <div class="skill-category">AI & Agentic</div>
       <div class="skill-tags">
-        <span class="tag">Cursor AI</span><span class="tag">GitHub Copilot</span><span class="tag">Claude API</span>
-        <span class="tag">Azure OpenAI</span><span class="tag">LangChain</span><span class="tag">AI Agents</span><span class="tag">MCP</span>
+        <span class="tag">Azure OpenAI</span><span class="tag">LLMs</span><span class="tag">LangChain</span>
+        <span class="tag">RAG</span><span class="tag">Prompt Engineering</span>
+        <span class="tag">GitHub Copilot</span><span class="tag">Cursor AI</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">☁️</div>
+      <div class="skill-category">Azure</div>
+      <div class="skill-tags">
+        <span class="tag">App Services</span><span class="tag">Azure SQL</span><span class="tag">Azure DevOps</span>
+        <span class="tag">Entra ID</span><span class="tag">Key Vault</span><span class="tag">Graph API</span>
+        <span class="tag">VNet</span><span class="tag">Terraform</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🔶</div>
+      <div class="skill-category">AWS</div>
+      <div class="skill-tags">
+        <span class="tag">EC2</span><span class="tag">Lambda</span><span class="tag">S3</span>
+        <span class="tag">RDS</span><span class="tag">API Gateway</span><span class="tag">Transcribe</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🛠️</div>
+      <div class="skill-category">DevOps & Data</div>
+      <div class="skill-tags">
+        <span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">GitHub Actions</span>
+        <span class="tag">Jenkins</span><span class="tag">SQL Server</span><span class="tag">Oracle</span>
+        <span class="tag">Swagger/OpenAPI</span><span class="tag">Jira</span><span class="tag">Bitbucket</span>
       </div>
     </div>
     <div class="skill-card">
       <div class="skill-icon">🔐</div>
-      <div class="skill-category">Testing &amp; Security</div>
+      <div class="skill-category">Security & Quality</div>
       <div class="skill-tags">
-        <span class="tag">Unit Testing</span><span class="tag">Integration Testing</span><span class="tag">OAuth2</span>
-        <span class="tag">JWT</span><span class="tag">Logging</span><span class="tag">Monitoring</span><span class="tag">HIPAA</span>
+        <span class="tag">OAuth2</span><span class="tag">JWT</span><span class="tag">Unit Testing</span>
+        <span class="tag">Integration Testing</span><span class="tag">xUnit</span>
+        <span class="tag">Agile</span><span class="tag">Scrum</span>
       </div>
     </div>
   </div>
 </section>
 
+<!-- EDUCATION -->
 <section id="education">
   <div class="section-header">
     <span class="section-num">03</span>
@@ -709,27 +781,28 @@
   </div>
   <div class="edu-grid">
     <div class="edu-card">
-      <div class="edu-degree">Master of Science in<br>Computer Science</div>
+      <div class="edu-degree">Master of Science<br>Computer Science</div>
       <div class="edu-school">University of Maryland, Baltimore County</div>
       <div class="edu-period">Aug 2021 — May 2023</div>
     </div>
     <div class="edu-card">
-      <div class="edu-degree">Bachelor of Engineering in<br>Computer Engineering</div>
+      <div class="edu-degree">Bachelor of Engineering<br>Computer Engineering</div>
       <div class="edu-school">Savitribai Phule Pune University</div>
       <div class="edu-period">Aug 2014 — May 2018</div>
     </div>
   </div>
 </section>
 
+<!-- CONTACT -->
 <div class="contact-section" id="contact">
   <div class="contact-inner">
     <div>
       <div class="hero-eyebrow" style="animation:none; margin-bottom:1rem;">Let's Connect</div>
       <h2 class="contact-heading">Open to <em>new<br>opportunities</em></h2>
-      <p class="contact-sub">Open to relocate. Available for senior engineering and architecture roles in healthcare, fintech, or high-scale SaaS.</p>
+      <p class="contact-sub">Open to relocate. Available for Senior Software Engineer, Lead Engineer, and AI Integration roles where the problems are hard, the systems are real, and the work actually matters.</p>
     </div>
     <div class="contact-links">
-      <a href="mailto:radhikabhong@gmail.com" class="contact-link">
+      <a href="mailto:radhikabhong96@gmail.com" class="contact-link">
         <span class="contact-link-icon">✉</span>
         <div class="contact-link-info">
           <div class="contact-link-label">Email</div>
@@ -759,3 +832,14 @@
           <div class="contact-link-label">GitHub</div>
           <div class="contact-link-value">github.com/radhikabhong</div>
         </div>
+        <span class="contact-link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+</footer>
+
+</body>
+</html>
